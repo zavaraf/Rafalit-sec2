@@ -35,26 +35,55 @@ function division(a,b){
 let valDiva = 20;
 let valDivb = 5;
 
-const promise = new Promise((resolve,reject) => {
-		resolve({success : calculator('division',valDiva,valDivb)});
-})
+const promiseSuma = (a,b ) => {
+	return new Promise((resolve,reject) => {
+		resolve({sum : calculator('suma',a,b)});
+})};
 
-const promiseMultiplicacion = new Promise((resolve,reject) => {
-	    multi = 
-		resolve({success : calculator('multiplicacion',valDiva,valDivb)});
-});
+const promiseMultiplicacion = (a,b) => {
+
+	return new Promise((resolve,reject) => {
+	    
+		resolve({multi : calculator('multiplicacion',a,b)});
+}) };
+
+const promiseresta = new Promise((resolve,reject) => {
+	    let c = 4;
+	    let d = 19;
+		resolve({resta : calculator('resta',c,d)});
+}) ;
+
+const promiseDiv = (a,b) => {
+	return new Promise((resolve,reject) => {
+	   
+		resolve({div : calculator('division',valDiva,valDivb)});
+}) };
 
 
 
 
 ((a,b)=> {
+	const multia = 10;
+	const multib = 20;
 
-	console.log('Hola')
-	promise.then((response) => {
+	
+	promiseresta.then((response) => {
 	console.log(response)
-	}).then ( multi => promiseMultiplicacion(a,b));
+	});
 
+	promiseSuma(a,b).then((response) => {
+	console.log(response)
+	});
 
+	promiseDiv(a,b).then((response) => {
+	console.log(response)
+	});
+
+	promiseMultiplicacion(multia,multib).then((response) => {
+	console.log(response)
+	});
+
+	
 
 	
 })(5,6);
